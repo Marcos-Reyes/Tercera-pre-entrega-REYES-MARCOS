@@ -1,0 +1,30 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+<a href="{% url 'agregar_producto' %}" class="btn btn-primary">Agregar Producto</a>
+<a href="{% url 'buscar_producto' %}" class="btn btn-primary">Buscar Producto</a>
+{% endblock titulo %}
+
+{% block contenido %}
+
+    <h1>{{titulo}}</h1>
+    {% if mensaje %}
+    <div class="alert alert-info">{{ mensaje }}</div>
+    {% endif %}
+    <table class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Nombre de producto</th>
+            <th>numero</th>
+        </tr>
+    {% for c in productos %}
+        <tr>
+            <td>{{ c.id }}</td>
+            <td>{{ c.nombre }}</td>
+            <td>{{ c.numero }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+{% endblock contenido %}

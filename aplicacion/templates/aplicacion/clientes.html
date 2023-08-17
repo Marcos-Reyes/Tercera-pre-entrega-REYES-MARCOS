@@ -1,0 +1,33 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+ <h4>Clientes</h4>
+ <a href="{% url 'agregar_cliente' %}" class="btn btn-primary">Agregar cliente</a>
+<a href="{% url 'buscar_cliente' %}" class="btn btn-primary">Buscar cliente</a>
+
+{% endblock titulo %}
+
+{% block contenido %}
+<h1>{{titulo}}</h1>
+{% if mensaje %}
+<div class="alert alert-info">{{ mensaje }}</div>
+{% endif %}
+<table class="table table-striped">
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Apeliido</th>
+        <th>email</th>
+    </tr>
+{% for c in clientes %}
+    <tr>
+        <td>{{ c.id }}</td>
+        <td>{{ c.nombre }}</td>
+        <td>{{ c.apellido }}</td>
+        <td>{{ c.email}}</td>
+    </tr>
+{% endfor %}
+</table>
+
+{% endblock contenido %}

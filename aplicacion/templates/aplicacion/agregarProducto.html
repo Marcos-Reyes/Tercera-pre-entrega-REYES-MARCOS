@@ -1,0 +1,17 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+<h2>Agregar un curso</h2>
+
+{% endblock titulo %}
+
+{% block contenido %}
+    
+    <form action="" method="post">
+        {%csrf_token%}
+        <p>Curso: <input type="text" name="nombre" id="nombre"></p>
+        <p>Comision: <input type="number" name="comision" id="comision"></p>
+        <input type="submit" value="Enviar">
+    </form>
+    {% endblock contenido %}

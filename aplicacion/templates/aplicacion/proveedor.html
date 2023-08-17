@@ -1,0 +1,33 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+ <h4>Proveedores</h4>
+ <a href="{% url 'agregar_proveedor' %}" class="btn btn-primary">Agregar proveedor</a>
+<a href="{% url 'buscar_proveedor' %}" class="btn btn-primary">Buscar proveedor</a>
+
+{% endblock titulo %}
+
+{% block contenido %}
+<h1>{{titulo}}</h1>
+{% if mensaje %}
+<div class="alert alert-info">{{ mensaje }}</div>
+{% endif %}
+<table class="table table-striped">
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Apeliido</th>
+        <th>email</th>
+    </tr>
+{% for c in proveedor %}
+    <tr>
+        <td>{{ c.id }}</td>
+        <td>{{ c.nombre }}</td>
+        <td>{{ c.apellido }}</td>
+        <td>{{ c.email}}</td>
+    </tr>
+{% endfor %}
+</table>
+
+{% endblock contenido %}
